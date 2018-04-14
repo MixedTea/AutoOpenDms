@@ -3,6 +3,8 @@ package nxty.test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.sun.media.jfxmedia.logging.Logger;
+
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -11,11 +13,12 @@ public class sendMessage {
 	    String[] longer = new String[array.length + 1];
 	    for (int i = 0; i < array.length; i++)
 	        longer[i] = array[i];
-	    longer[array.length] = push;
+	    longer[array.length + 1] = push;
 	    return longer;
 	}
-	private String[] tempBlocked;
-	public static String username = "";
+	private String[] tempBlocked = new String[0];
+	private static String username = "";
+	private static int stage = 1;
 	private Pattern req = Pattern.compile(
 			"\u00A7m----------------------------------------------------Friend request from (?<name>.+)\\[ACCEPT\\] - \\[DENY\\] - \\[IGNORE\\].*");
 	@SubscribeEvent
@@ -34,13 +37,22 @@ public class sendMessage {
 					isBlocked = true;
 					break;
 				}
-			}
-			if(!isBlocked) {
+			} 
+			if(isBlocked != true) {
 				username = name;
 				Main.Threadpool.submit(new denyThread());
 				tempBlocked = push(tempBlocked, name);
+				stage += 1;
+				if(stage > 3) {
+					stage = 1;
+				}
+			}else {
+				
 			}
 		}
+	}
+	public static int getStage() {
+		return stage;
 	}
 	public static String getUsername(){
 		return username;
