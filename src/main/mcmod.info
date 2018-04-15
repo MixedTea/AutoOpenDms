@@ -1,0 +1,16 @@
+[
+{
+  "modid": "AutoDeny",
+  "name": "AutoDeny",
+  "description": "Automatically accepts friend requests, tells them that you have dm's open, and then removes them. Next time they friend you it will stop functioning",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/MixedTea/AutoOpenDms",
+  "updateUrl": "",
+  "authorList": ["ExampleDude"],
+  "credits": "nxty",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

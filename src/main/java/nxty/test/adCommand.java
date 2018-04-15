@@ -29,7 +29,8 @@ public class adCommand extends CommandBase{
 	
 	public String getCommandUsage(ICommandSender sender) {
 		// TODO Auto-generated method stub
-		return "Usage: /" + getCommandName() + " [on/off]";
+		return "Usage: /" + getCommandName() + " [" + EnumChatFormatting.GREEN + "on" + EnumChatFormatting.GRAY + 
+				"/" + EnumChatFormatting.RED +"off" + EnumChatFormatting.GRAY +"]";
 	}
 
 	
