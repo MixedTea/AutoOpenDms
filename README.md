@@ -1,2 +1,2 @@
 # AutoOpenDms
-somethjing cool
+something cool
